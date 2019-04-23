@@ -25,8 +25,6 @@ class PostController extends Controller
         $user_id = auth()->user()->id;
         $users = User::find($user_id);
         return view('index', compact('posts'));
-
-        //return view('index', ['posts' => $posts]);
     }
 
     /**
