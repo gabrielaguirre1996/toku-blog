@@ -76,5 +76,9 @@
           @yield('content')
         </div>
     </div>
+    
+    <footer>
+    &copy;2019 Tōku
+  </footer>
 </body>
 </html>

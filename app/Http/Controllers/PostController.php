@@ -66,11 +66,15 @@ class PostController extends Controller
         $post->user_id = auth()->user()->id;
 
         $post->save();
-        $request->session()->flash('status', 'Post was successfully created!');
+
+        $request->session()->flash('message.level', 'success');
+        $request->session()->flash('message.content', 'Post was successfully added!');
+
         return redirect()->route('home');
 
       } else {
-            $request->session()->flash('status', 'Error creating post!');
+        $request->session()->flash('message.level', 'danger');
+        $request->session()->flash('message.content', 'Error!');
         }
 
     }

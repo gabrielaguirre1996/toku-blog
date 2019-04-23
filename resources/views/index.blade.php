@@ -3,10 +3,10 @@
 @section('content')
             <br>
             <br>
-            @if(session()->has('status')){
-              echo '<div style="text-align: center">';
-              echo session()->get('status');
-              echo '</div>';
+            @if(session()->has('message.level'))
+                <div class="alert alert-{{ session('message.level') }}">
+                {!! session('message.content') !!}
+                </div>
             @endif
             <div class="row">
             @foreach($posts as $post)
