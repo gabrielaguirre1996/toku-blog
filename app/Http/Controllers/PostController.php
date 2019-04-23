@@ -47,7 +47,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-      $post = new Post;
+      if ($post = new Post) {
 
     	$request->validate([
             'title'=>'required',
@@ -66,8 +66,13 @@ class PostController extends Controller
         $post->user_id = auth()->user()->id;
 
         $post->save();
-
+        $request->session()->flash('status', 'Post was successfully created!');
         return redirect()->route('home');
+
+      } else {
+            $request->session()->flash('status', 'Error creating post!');
+        }
+
     }
 
     /**
