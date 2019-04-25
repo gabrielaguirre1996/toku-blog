@@ -23,7 +23,8 @@
                       <img src="{{ asset($post->image) }}" alt="" class="card-img-top">
                     </a>
                     @endif
-                    {{ $post->content }}
+                    <br><br>
+                    {{ $post->body }}
                     <br>
                     <br>
                     <p><small>
